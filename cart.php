@@ -36,7 +36,6 @@ if($n<5)
    $r = $r+1;
 }
 }
-
 for($i=0;$i<$n;$i++)
 {
  echo '<table  cellspacing=10 cellpadding = 6 width=300>';
@@ -50,8 +49,36 @@ echo '</figure>';
 echo '</td>';
 echo '</table>';
 }
-
 ?>
+<button type="button" onclick="checkout()">Check out</button>
+<?php
+ function checkout()
+{
+  $con=mysqli_connect("localhost","root","","project");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+else
+{
+//	echo "connected";
+}
+$sqlse = "select * from cart";
+$var=mysqli_query($con,$sqlse);
+//$rowcount=mysqli_num_rows($result1);
 
+while ($row = $var->fetch_row()) {
+         
+$sqlw="INSERT INTO `orders`(`name`, `quantity`, `price`, `category`, `product`) VALUES ('."$row[0]".','."$row[1]".','."$row[2]".','."$row[3]".','."$row[4]".')";
+$result=mysqli_query($con,$sqlw);
+
+    }
+
+
+
+
+}
+?>
 </body>
 </html>
