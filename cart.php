@@ -1,12 +1,203 @@
-<!doctype html>
+<html>
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>
-cart
+<h2> iphone 6s
 </title>
-<h2> Cart checkout
+<style >
+.wrapper {
+    text-align: center;
+}
+.checked {
+    color: orange;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+}
+.left{
+  flex: auto;
+  float:left;
+
+  margin-left: 10px;
+  width:400px;
+  margin-top: 20px;
+}
+.outer{
+  display: flex;
+}
+.right{
+  position: absolute;
+  right:420px;
+  flex:auto;
+  width:600px;
+  margin-top: 20px;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav .search-container {
+  position: absolute;
+  right: 0px;
+  top:0px;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+
+}
+.fa-fa-search{
+  height:45px !important;
+}
+.topnav{
+  height:60px;
+}
+li{
+  list-style-type: none;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+.search{
+  position: absolute;
+  right: 300px;
+  top:5px
+}
+.topnav{
+  padding: 10px;
+}
+
+.button {
+    background-color: #f0c14b; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    position:absolute;
+    top:400px;
+    right:200px
+}
+.button2 {
+    background-color: #f0c14b; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    position:absolute;
+    top:400px;
+    right:370px
+}
+
+.button1 {font-size: 10px;}
+
+.parent-wrapper {
+  height: 100%;
+  width: 100%;
+  margin-top: 30px;
+}
+.parent {
+  display: flex;
+  font-size: 0;
+  flex-wrap: wrap;
+  margin: -10px 0 0 -10px;
+}
+.child {
+  display: inline-block;
+  margin: 10px 0 0 10px;
+  flex-grow: 1;
+  height: 100px;
+}
+
+
+</style>
 </head>
 <body>
+  <header class="w3-container w3-xlarge header">
+    <div class="w3-bar w3-light-grey topnav">
+    <a href="mainpage.php" class="w3-bar-item w3-button">Home </a>
+   <a href="account.php" class="w3-bar-item w3-button">Accounts</a>
+    <a href="order.php" class="w3-bar-item w3-button">Orders</a>
+    <a href="reports.html" class="w3-bar-item w3-button">Reports</a>
+    <div class="search">
+     <a href="cart.php">
+          <span class="glyphicon glyphicon-shopping-cart"></span>
+        </a>
+    </div>
+
+      <div class="search-container">
+          <form action="search.php" method="post" target="_blank">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+
+        </div>
+    </div>
+  </div>
+
+<!--<div>
+  <form action="/action_page.php">
+    <input   type="text" placeholder="Search.." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+</div>-->
+
+
+
+
+  </header>
 <?php
+//echo "here";
 $con=mysqli_connect("localhost","root","","project");
 // Check connection
 if (mysqli_connect_errno())
@@ -50,10 +241,16 @@ echo '</td>';
 echo '</table>';
 }
 ?>
-<button type="button" onclick="checkout()">Check out</button>
+
+<form method="post">
+    <input type="submit" name="test" id="test" value="check_out" />
+</form>
+
 <?php
+//echo "nowew";
  function checkout()
 {
+	//echo "going?";
   $con=mysqli_connect("localhost","root","","project");
 // Check connection
 if (mysqli_connect_errno())
@@ -67,18 +264,19 @@ else
 $sqlse = "select * from cart";
 $var=mysqli_query($con,$sqlse);
 //$rowcount=mysqli_num_rows($result1);
-
 while ($row = $var->fetch_row()) {
-         
-$sqlw="INSERT INTO `orders`(`name`, `quantity`, `price`, `category`, `product`) VALUES ('."$row[0]".','."$row[1]".','."$row[2]".','."$row[3]".','."$row[4]".')";
+
+$sqlw="INSERT INTO `orders`(`name`, `quantity`, `price`, `category`, `product`) VALUES ('".$row[0]."',".$row[1].",".$row[2].",'".$row[3]."','".$row[4]."')";
 $result=mysqli_query($con,$sqlw);
-
     }
-
-
-
+$sqle="delete from cart";
+$resulte=mysqli_query($con,$sqle);	
 
 }
+if(array_key_exists('test',$_POST)){
+   checkout();
+}
 ?>
+
 </body>
 </html>
