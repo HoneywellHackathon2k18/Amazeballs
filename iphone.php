@@ -169,7 +169,7 @@ if ($rowcount)
    mysqli_free_result($result1);
   }
 else{
-$sql ="insert into view values('phone',1,'Electronics')";
+$sql ="insert into view values('phone',1,'electronics')";
 	$result2=mysqli_query($con,$sql);
 	mysqli_free_result($result2);
 }
@@ -178,7 +178,7 @@ mysqli_close($con);
 <body>
   <header class="w3-container w3-xlarge header">
     <div class="w3-bar w3-light-grey topnav">
-    <a href="honeywell.php" class="w3-bar-item w3-button">Home </a>
+    <a href="mainpage.php" class="w3-bar-item w3-button">Home </a>
    <a href="account.php" class="w3-bar-item w3-button">Accounts</a>
     <a href="#" class="w3-bar-item w3-button">Orders</a>
     <a href="reports.html" class="w3-bar-item w3-button">Reports</a>
@@ -214,7 +214,7 @@ mysqli_close($con);
   </header>
   <div class="outer">
   <div class="left" ><form action="/action_page.php" method="get" name="phone">
-  <img  src="iphone6s.jpg" width="300px" height ="400px" />
+  <img  src="iphone.jpg" width="300px" height ="400px" />
 </div>
   <div class="right">
     <h3>Apple iPhone 6S</h3>
@@ -272,7 +272,7 @@ else
 {
 //	echo "connected";
 }
-$sqlse = "select * from cart where name='iphone6s'";
+$sqlse = "select * from cart where name='iphone'";
 $var=mysqli_query($con,$sqlse);
 //$rowcount=mysqli_num_rows($result1);
 
@@ -283,7 +283,7 @@ $message = "Username and/or Password incorrect.\\nTry again.";
 }
 else
 {
-	$sqlw="INSERT INTO `cart`(`name`, `quantity`, `price`, `category`, `product`) VALUES ('iphone6s',1,34990,'electronics','phone')";
+	$sqlw="INSERT INTO `cart`(`name`, `quantity`, `price`, `category`, `product`) VALUES ('iphone',1,34990,'electronics','phone')";
 $result=mysqli_query($con,$sqlw);
 }
 
@@ -316,7 +316,7 @@ $result=mysqli_query($con,$sqlw);
 <br><br>
 -->
 <?php
-include 'edit.php';
+include 'mathh.php';
 
 ?>
   </body>
